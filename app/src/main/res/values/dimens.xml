@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_12">12dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="photo_size">80dp</dimen>
+    <dimen name="ic_size">20dp</dimen>
+</resources>
