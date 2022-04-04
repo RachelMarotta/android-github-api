@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Android-github-api</string>
+    <string name="app_name">Repositórios Github</string>
+    <string name="author">Autor</string>
+    <string name="repository_name">Nome</string>
+    <string name="description">Descrição</string>
+    <string name="repository_photo">Foto do autor</string>
 </resources>

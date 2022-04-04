@@ -1,19 +1,21 @@
-# Meta Individual 2022
+# Meta Individual 1 de 2022
 
-### Srint 1: :star:
+Aplicativo desenvolvido para listar os repositórios do github que utilizam a linguagem Kotlin.
 
-#### 1. Recycler View
+#### RecyclerView
+- [X] Adapter e ViewHolder
+- [X] ViewTypes
+- [ ] ItemDecorator
+- [X] LayoutManager
 
-- Adapter
-    [X] Criar o Fragment que irá mostrar os elementos na tela e conter a lógica;
-    [X] Adicionar o Recycler View no Layout do Fragment;
-    [ ]
-- View Holder
-    [ ]
-- View Types
-    [ ]
-- Item Decorator
-    [ ]
-- Layout Manager
-    [ ]
-    
+#### CustomView
+- [ ] Agrupamento de views (reutilização)
+- [ ] Atributos customizáveis
+- [ ] Hierarquia de estilos
+- [ ] Testes
+
+#### Arquitetura Android / Jetpack
+- [ ] ViewModel
+- [ ] LiveData
+- [ ] LifeCycle
+- [ ] Navigation
