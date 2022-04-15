@@ -3,56 +3,55 @@ package com.example.android_github_api
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.android_github_api.model.RepositoryItem
 
-class RepositoryAdapter(private val listRepositories: List<RepositoryItem>) :
-    RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+private const val FORKS = 1000
+private const val FORKS_VIEW_TYPE = 2
+private const val REPOSITORY_VIEW_TYPE = 1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
-        if (viewType < 1000) {
-            val card = LayoutInflater
-                .from(parent.context)
-                .inflate(R.layout.repository_card_item_light, parent, false)
+class RepositoryAdapter(listRepositories: List<RepositoryItem>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-            return RepositoryViewHolder(card)
+    private val items = mutableListOf<ViewBase>()
+
+    init {
+        listRepositories.forEach {
+            items.add(RepositoryViewType(it))
+
+            if (it.forks_count > FORKS) {
+                items.add(ForksViewType())
+            }
         }
-        val card = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.repository_card_item_dark, parent, false)
-
-        return RepositoryViewHolder(card)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return listRepositories.elementAt(position).forks_count
-    }
-
-    override fun getItemCount(): Int = listRepositories.size
-
-    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
-        return holder.bind(listRepositories[position])
-    }
-
-    class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val repositoryPhoto: ImageView = itemView.findViewById(R.id.repository_photo)
-        private val repositoryName: TextView = itemView.findViewById(R.id.repository_name)
-        private val repositoryDescription: TextView =
-            itemView.findViewById(R.id.repository_description)
-        private val repositoryAuthor: TextView = itemView.findViewById(R.id.repository_author)
-        private val repositoryStars: TextView = itemView.findViewById(R.id.repository_stars)
-        private val repositoryForks: TextView = itemView.findViewById(R.id.repository_forks)
-
-        fun bind(item: RepositoryItem) {
-            Glide.with(itemView.context).load(item.owner.avatar_url).into(repositoryPhoto)
-            repositoryName.text = item.name
-            repositoryDescription.text = item.description
-            repositoryAuthor.text = item.owner.login
-            repositoryStars.text = item.stargazers_count.toString()
-            repositoryForks.text = item.forks_count.toString()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        if (viewType == REPOSITORY_VIEW_TYPE) {
+            RepositoryViewHolder(CardCustomView(parent.context))
+        } else {
+            ForksViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.forks_quantity, parent,false)
+            )
         }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is RepositoryViewHolder) {
+            holder.bindItem((items[position] as RepositoryViewType).item)
+        }
+    }
+
+    override fun getItemCount() = items.size
+
+    override fun getItemViewType(position: Int) = items[position].viewType
+
+    class ForksViewHolder(view: View) : RecyclerView.ViewHolder(view)
+
+    class RepositoryViewHolder(private val view: CardCustomView) : RecyclerView.ViewHolder(view) {
+        fun bindItem(item: RepositoryItem) = view.setup(item)
     }
 }
+
+abstract class ViewBase(val viewType: Int)
+class ForksViewType : ViewBase(FORKS_VIEW_TYPE)
+class RepositoryViewType(val item: RepositoryItem) : ViewBase(REPOSITORY_VIEW_TYPE)
