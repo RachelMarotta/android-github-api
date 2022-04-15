@@ -12,7 +12,7 @@ Aplicativo desenvolvido para listar os repositórios do github que utilizam a li
 - [X] Agrupamento de views (reutilização)
 - [X] Atributos customizáveis
 - [X] Hierarquia de estilos
-- [ ] Testes
+- [X] Testes
 
 #### Arquitetura Android / Jetpack
 - [ ] ViewModel
