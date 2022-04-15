@@ -5,7 +5,7 @@ Aplicativo desenvolvido para listar os repositórios do github que utilizam a li
 #### RecyclerView
 - [X] Adapter e ViewHolder
 - [X] ViewTypes
-- [ ] ItemDecorator
+- [X] ItemDecoration
 - [X] LayoutManager
 
 #### CustomView
