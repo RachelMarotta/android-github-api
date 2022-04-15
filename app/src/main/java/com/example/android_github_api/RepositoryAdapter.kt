@@ -13,16 +13,25 @@ class RepositoryAdapter(private val listRepositories: List<RepositoryItem>) :
     RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
+        if (viewType < 1000) {
+            val card = LayoutInflater
+                .from(parent.context)
+                .inflate(R.layout.repository_card_item_light, parent, false)
+
+            return RepositoryViewHolder(card)
+        }
         val card = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.repository_card_item, parent, false)
+            .inflate(R.layout.repository_card_item_dark, parent, false)
 
         return RepositoryViewHolder(card)
     }
 
-    override fun getItemCount(): Int {
-        return listRepositories.size
+    override fun getItemViewType(position: Int): Int {
+        return listRepositories.elementAt(position).forks_count
     }
+
+    override fun getItemCount(): Int = listRepositories.size
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         return holder.bind(listRepositories[position])
@@ -31,7 +40,8 @@ class RepositoryAdapter(private val listRepositories: List<RepositoryItem>) :
     class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val repositoryPhoto: ImageView = itemView.findViewById(R.id.repository_photo)
         private val repositoryName: TextView = itemView.findViewById(R.id.repository_name)
-        private val repositoryDescription: TextView = itemView.findViewById(R.id.repository_description)
+        private val repositoryDescription: TextView =
+            itemView.findViewById(R.id.repository_description)
         private val repositoryAuthor: TextView = itemView.findViewById(R.id.repository_author)
         private val repositoryStars: TextView = itemView.findViewById(R.id.repository_stars)
         private val repositoryForks: TextView = itemView.findViewById(R.id.repository_forks)
