@@ -6,4 +6,5 @@
     <string name="repository_photo">Foto do autor</string>
     <string name="star_description">Star</string>
     <string name="fork_description">Fork</string>
+    <string name="forks_text">Este repositório tem mais de 1.000 forks</string>
 </resources>

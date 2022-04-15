@@ -3,7 +3,7 @@
     style="@style/TextAppearance.AppCompat"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_gray_dark"
+    android:background="@drawable/bg_gray"
     android:elevation="@dimen/dimen_12"
     android:orientation="horizontal">
 

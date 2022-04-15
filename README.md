@@ -9,9 +9,9 @@ Aplicativo desenvolvido para listar os repositórios do github que utilizam a li
 - [X] LayoutManager
 
 #### CustomView
-- [ ] Agrupamento de views (reutilização)
-- [ ] Atributos customizáveis
-- [ ] Hierarquia de estilos
+- [X] Agrupamento de views (reutilização)
+- [X] Atributos customizáveis
+- [X] Hierarquia de estilos
 - [ ] Testes
 
 #### Arquitetura Android / Jetpack
