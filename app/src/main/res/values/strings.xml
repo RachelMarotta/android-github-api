@@ -4,4 +4,6 @@
     <string name="repository_name">Nome</string>
     <string name="description">Descrição</string>
     <string name="repository_photo">Foto do autor</string>
+    <string name="star_description">Star</string>
+    <string name="fork_description">Fork</string>
 </resources>

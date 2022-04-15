@@ -87,6 +87,12 @@ class MainActivity : AppCompatActivity() {
                         recyclerview.apply {
                             setHasFixedSize(true)
                             adapter = repositoryAdapter
+                            addItemDecoration(
+                                ItemDecoration(
+                                    resources.getDimensionPixelOffset(R.dimen.dimen_16),
+                                    resources.getDimensionPixelOffset(R.dimen.dimen_10)
+                                )
+                            )
                         }
                     }
                 }
