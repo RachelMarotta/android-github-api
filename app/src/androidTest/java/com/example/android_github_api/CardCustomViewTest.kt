@@ -10,6 +10,8 @@ import androidx.test.internal.runner.junit4.statement.UiThreadStatement.runOnUiT
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.android_github_api.model.RepositoryItem
 import com.example.android_github_api.model.RepositoryOwner
+import com.example.android_github_api.ui.CardCustomView
+import com.example.android_github_api.ui.MainActivity
 import org.junit.Test
 
 class CardCustomViewTest {

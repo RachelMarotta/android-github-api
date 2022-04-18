@@ -1,4 +1,4 @@
-package com.example.android_github_api
+package com.example.android_github_api.ui
 
 import android.content.Context
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.android_github_api.R
 import com.example.android_github_api.model.RepositoryItem
 
 class CardCustomView(context: Context) : LinearLayout(context) {

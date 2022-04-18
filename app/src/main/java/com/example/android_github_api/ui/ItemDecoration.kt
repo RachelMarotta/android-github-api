@@ -1,4 +1,4 @@
-package com.example.android_github_api
+package com.example.android_github_api.ui
 
 import android.graphics.Rect
 import android.view.View
