@@ -15,7 +15,7 @@ Aplicativo desenvolvido para listar os repositórios do github que utilizam a li
 - [X] Testes
 
 #### Arquitetura Android / Jetpack
-- [ ] ViewModel
+- [X] ViewModel
 - [ ] LiveData
 - [ ] LifeCycle
 - [ ] Navigation

@@ -1,9 +1,10 @@
-package com.example.android_github_api
+package com.example.android_github_api.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android_github_api.R
 import com.example.android_github_api.model.RepositoryItem
 
 private const val FORKS = 1000
