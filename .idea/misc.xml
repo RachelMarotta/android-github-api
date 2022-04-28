@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/bg_gray_light.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_purple_light.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16877637130801687" />
+        <entry key="app/src/main/res/layout/content_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/forks_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/forks_quantity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/repository_card_item.xml" value="0.18" />

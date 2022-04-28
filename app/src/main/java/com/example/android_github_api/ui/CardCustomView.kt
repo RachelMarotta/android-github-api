@@ -15,7 +15,6 @@ class CardCustomView(context: Context) : LinearLayout(context) {
     private val photo by lazy { findViewById<ImageView>(R.id.repository_photo) }
     private val author by lazy { findViewById<TextView>(R.id.repository_author) }
     private val repositoryName by lazy { findViewById<TextView>(R.id.repository_name) }
-    private val description by lazy { findViewById<TextView>(R.id.repository_description) }
     private val stars by lazy { findViewById<TextView>(R.id.repository_stars) }
     private val forks by lazy { findViewById<TextView>(R.id.repository_forks) }
     
@@ -29,7 +28,6 @@ class CardCustomView(context: Context) : LinearLayout(context) {
         Glide.with(context).load(item.owner.avatar_url).into(photo)
         author.text = item.owner.login
         repositoryName.text = item.name
-        description.text = item.description
         stars.text = item.stargazers_count.toString()
         forks.text = item.forks_count.toString()
     }

@@ -11,7 +11,10 @@ private const val FORKS = 1000
 private const val FORKS_VIEW_TYPE = 2
 private const val REPOSITORY_VIEW_TYPE = 1
 
-class RepositoryAdapter(listRepositories: List<RepositoryItem>) :
+class RepositoryAdapter(
+    listRepositories: List<RepositoryItem>,
+    private val onClick: (String) -> Unit
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val items = mutableListOf<ViewBase>()
@@ -32,13 +35,13 @@ class RepositoryAdapter(listRepositories: List<RepositoryItem>) :
         } else {
             ForksViewHolder(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.forks_quantity, parent,false)
+                    .inflate(R.layout.forks_quantity, parent, false)
             )
         }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is RepositoryViewHolder) {
-            holder.bindItem((items[position] as RepositoryViewType).item)
+            holder.bindItem((items[position] as RepositoryViewType).item, onClick)
         }
     }
 
@@ -49,7 +52,10 @@ class RepositoryAdapter(listRepositories: List<RepositoryItem>) :
     class ForksViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     class RepositoryViewHolder(private val view: CardCustomView) : RecyclerView.ViewHolder(view) {
-        fun bindItem(item: RepositoryItem) = view.setup(item)
+        fun bindItem(item: RepositoryItem, onClick: (String) -> Unit) {
+            view.setup(item)
+            view.setOnClickListener { onClick(item.description) }
+        }
     }
 }
 
